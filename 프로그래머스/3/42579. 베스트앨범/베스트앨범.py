@@ -1,3 +1,26 @@
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
 def solution(genres, plays):
     answer = []
 
@@ -15,13 +38,8 @@ def solution(genres, plays):
         else:
             dic2[g] += p
 
-    print(dic1)
-    print(dic2)
-    
     for (k, v) in sorted(dic2.items(), key=lambda x:x[1], reverse=True):
-        for (i, p) in sorted(dic1[k], key=lambda x:(x[1], -x[0]), reverse=True)[:2]:
+        for (i, p) in sorted(dic1[k], key=lambda x:x[1], reverse=True)[:2]:
             answer.append(i)
 
     return answer
-
-    
