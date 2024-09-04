@@ -7,9 +7,11 @@ def solution(progresses, speeds):
     days = [math.ceil((100-p) / s) for p, s in zip(progresses, speeds)]
 
     index = 0 # 현재인덱스
-
+    process = 0
     for i in range(len(days)) :
+        process +=1
         if days[index] < days[i] :      # 현재 인덱스의 작업일보다 큰 작업일이 나오면
+            process +=1
             answer.append(i - index)    # 둘의 차이(배포 개수)를 추가 
             index = i                   # 현재 인덱스를 갱신
             
