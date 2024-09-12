@@ -1,16 +1,17 @@
-def dfs(n,computers, start, visited):
-    visited[start] = True
-    for i in range(0,n):
-        if(visited[i]==False and computers[start][i]==1):
-            dfs(n,computers,i,visited)
-            
-
-            
-def solution(n,computers):
-    visited = [False]*n
+def DFS(i, visited, n, computers):
+        visited[i] = 1
+        for a in range(n):
+            if computers[i][a] and not visited[a]:
+                DFS(a, visited, n, computers)    
+                
+def solution(n, computers):            
+    
+           
     answer = 0
-    for start in range(0,n):
-        if(visited[start]==False):
-            dfs(n,computers,start,visited)
-            answer +=1
+    visited = [0 for i in range(len(computers))]
+    for i in range(n):
+        if not visited[i]:
+            DFS(i, visited, n, computers)
+            answer += 1
+        
     return answer
