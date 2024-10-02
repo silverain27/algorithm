@@ -24,7 +24,7 @@ def solution(tickets):
     
     for a, b in sorted(tickets, key=lambda x: x[1]):
         graph[a].append(b)
-    
+    print(graph)
     route = []
 
     def dfs(start):
@@ -33,4 +33,5 @@ def solution(tickets):
         route.append(start)
 
     dfs("ICN")
-    return route[::-1]
+    route.reverse()
+    return route
